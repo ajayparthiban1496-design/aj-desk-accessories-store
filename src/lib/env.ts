@@ -13,7 +13,13 @@ const schema = z.object({
   VITE_PLAUSIBLE_DOMAIN: z.string().optional(),
 });
 
-const parsed = schema.safeParse(import.meta.env);
+// Read each key explicitly: passing import.meta.env as a whole would bundle every VITE_* variable.
+const parsed = schema.safeParse({
+  VITE_MEDUSA_BACKEND_URL: import.meta.env.VITE_MEDUSA_BACKEND_URL,
+  VITE_MEDUSA_PUBLISHABLE_KEY: import.meta.env.VITE_MEDUSA_PUBLISHABLE_KEY,
+  VITE_SITE_URL: import.meta.env.VITE_SITE_URL,
+  VITE_PLAUSIBLE_DOMAIN: import.meta.env.VITE_PLAUSIBLE_DOMAIN,
+});
 if (!parsed.success) {
   console.error("Invalid storefront environment variables", parsed.error.flatten().fieldErrors);
 }

@@ -1,6 +1,8 @@
 # Aj Desk — Medusa Integration: Audit & Plan (Phase 1)
 
-Status: **plan, awaiting decisions in §6** · Medusa version targeted: **2.23.0** (npm `@medusajs/medusa`, checked 2026-11-26) · JS SDK `@medusajs/js-sdk@2.23.0`
+> **Superseded:** the open decisions in §6 were settled by following the 6yards setup (one Vercel project, Medusa container, Neon, pay on delivery, Vite kept). See [HANDOVER.md](./HANDOVER.md) for what was built. This file is kept for reference.
+
+Status: **plan (historical)** · Medusa version targeted: **2.23.0** (npm `@medusajs/medusa`, checked 2026-11-26) · JS SDK `@medusajs/js-sdk@2.23.0`
 
 ---
 
