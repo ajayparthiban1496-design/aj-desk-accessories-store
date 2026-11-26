@@ -71,8 +71,11 @@ module.exports = defineConfig({
   modules: [
     fileModule,
     { resolve: "./src/modules/contact" },
-    // Redis-backed infrastructure when Redis is configured (production).
-    ...(redisUrl
+    // Redis-backed event bus, workflow engine and locking. Off by default: on a
+    // single container they add nothing, and the queue's constant polling would
+    // use up Upstash's free command allowance. Set MEDUSA_REDIS_MODULES=true when
+    // running separate server and worker instances.
+    ...(redisUrl && process.env.MEDUSA_REDIS_MODULES === "true"
       ? [
           { resolve: "@medusajs/medusa/event-bus-redis", options: { redisUrl } },
           { resolve: "@medusajs/medusa/workflow-engine-redis", options: { redis: { redisUrl } } },

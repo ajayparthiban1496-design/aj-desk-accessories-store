@@ -51,13 +51,12 @@ Shoppers and the shop team only ever see one domain.
 
 ## 3. Still to do (needs you)
 
-1. **Create your Medusa Admin login** (one time). From `backend/apps/backend`, with the database settings pulled locally:
+1. ~~Admin login~~ **Done** (created with `scripts/create-admin.ps1`). To add more, run it again, or From `backend/apps/backend`, with the database settings pulled locally:
    ```powershell
    npx medusa user -e you@yourdomain.com -p "a-long-strong-password"
    ```
    Then sign in at `https://aj-desk-accessories-store.vercel.app/app`. Invite teammates from **Admin → Settings → Users** (invites made on the live site, not from your PC, because the live secrets differ).
-2. **Redis (recommended):** accept Upstash's terms at
-   `https://vercel.com/ajayparthiban1496-4452/~/integrations/accept-terms/upstash?source=cli`, then ask for the Redis database to be added. Without it, Admin logins are lost whenever the container restarts.
+2. ~~Redis~~ **Done:** Upstash Redis **aj-desk-redis** (Singapore) keeps Admin login sessions across restarts. Medusa's Redis event bus / workflow engine / locking stay off (set `MEDUSA_REDIS_MODULES=true` only if you split into server and worker instances), to stay within Upstash's free command allowance.
 3. **Emails:** create a Resend account, verify your domain, and set `RESEND_API_KEY` and `STORE_EMAIL_FROM` in Vercel. Order confirmations and password-reset emails start working immediately (until then they're skipped and logged).
 4. **Online payments (Razorpay):** needs your Razorpay account. There is no maintained Medusa v2 Razorpay plugin, so it will be a small custom payment provider.
 5. **Content to confirm:** the home page's press names, "12,000+ desks" and testimonials are placeholder marketing copy from the design phase. Replace them with real ones or remove them.
