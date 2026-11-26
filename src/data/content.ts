@@ -1,23 +1,3 @@
-export const testimonials = [
-  {
-    quote: "I rebuilt my whole home office around the Arc stand and the felt mat. It finally feels like a place I want to sit down at every morning.",
-    name: "Sneha Iyer",
-    role: "Product Designer, Bengaluru",
-  },
-  {
-    quote: "The Halo light bar is the best upgrade I've made in years. No glare, no headaches during late code reviews.",
-    name: "Karthik Raman",
-    role: "Software Engineer, Chennai",
-  },
-  {
-    quote: "Premium without being flashy. The walnut pieces look better every month and the packaging felt like a gift.",
-    name: "Aditi Verma",
-    role: "Architect, Mumbai",
-  },
-];
-
-export const press = ["YourStory", "Mint Lounge", "GQ India", "Digit", "The Hindu BusinessLine"];
-
 export const faqs: { q: string; a: string; group: "Orders" | "Shipping" | "Products" | "Returns" }[] = [
   { group: "Shipping", q: "How long does delivery take?", a: "Orders ship within 24 hours on working days. Metro cities usually receive them in 2–4 days, the rest of India in 4–7 days. You'll get a tracking link by email as soon as your parcel leaves our studio." },
   { group: "Shipping", q: "Is shipping free?", a: "Shipping is free on all orders over ₹1,999. Below that we charge a flat ₹149 anywhere in India." },

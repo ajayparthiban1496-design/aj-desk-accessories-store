@@ -10,7 +10,7 @@ import { unsplash } from "@/lib/utils";
 const values = [
   ["Less, but better", "We'd rather make twelve excellent things than a hundred forgettable ones. Every product earns its place on our shelf — and yours."],
   ["Materials that age well", "Solid walnut deepens, aluminium stays true, merino felt softens. We choose materials that get better with use, not worse."],
-  ["Designed in India, for Indian desks", "Built for humid monsoons, compact apartments and long workdays. Tested in Chennai, Bengaluru and Mumbai home offices."],
+  ["Designed in India, for Indian desks", "Chosen for humid monsoons, compact apartments and long workdays, and priced in rupees with GST included."],
   ["Honest pricing", "No inflated MRPs, no permanent 'sale'. Our prices reflect what it costs to make something properly."],
 ];
 
@@ -31,15 +31,15 @@ export default function About() {
         <ProductImage src={unsplash(IMG.heroDesk, 1800)} alt="A calm wooden workspace in warm evening light" className="aspect-[16/8] rounded-[var(--radius-xl)]" sizes="100vw" />
       </section>
       <section className="container-page mt-20 grid gap-10 lg:grid-cols-12">
-        <h2 className="text-3xl md:text-4xl lg:col-span-4">Started at a kitchen table in Chennai.</h2>
+        <h2 className="text-3xl md:text-4xl lg:col-span-4">Made for the desk you actually work at.</h2>
         <div className="space-y-5 text-lg leading-relaxed text-muted lg:col-span-7 lg:col-start-6">
           <p>
-            Aj Desk began in 2023, when our founder spent a year working from a dining table with a laptop propped up on cookbooks. Every stand we bought wobbled. Every mat peeled. The beautiful options were imported, expensive and took weeks to arrive.
+            Most desk accessories are either flimsy or imported at a price that makes little sense. Stands wobble, mats peel, and the beautiful options take weeks to arrive.
           </p>
           <p>
-            So we started making our own — first for friends, then for their colleagues, and now for more than 12,000 desks across India. We work with a small network of machinists, woodworkers and textile makers, and we test every product for months before it launches.
+            Aj Desk makes a small range of pieces that do one job well: solid materials, honest prices, quick delivery across India, and a warranty that assumes they'll last.
           </p>
-          <p>The goal hasn't changed: a desk that feels calm the moment you sit down at it.</p>
+          <p>The goal is simple: a desk that feels calm the moment you sit down at it.</p>
         </div>
       </section>
       <section className="container-page mt-24">
@@ -58,8 +58,8 @@ export default function About() {
       <section className="container-page mt-24 grid items-center gap-10 lg:grid-cols-2">
         <ProductImage src={unsplash(IMG.tableFlatlay, 1200)} alt="Desk essentials laid out on a round table" className="aspect-[4/3] rounded-[var(--radius-xl)]" sizes="50vw" />
         <div>
-          <h2 className="text-3xl md:text-4xl">12,000+ desks. 4.8★ average. 2% return rate.</h2>
-          <p className="mt-4 text-muted">The numbers we're proudest of aren't sales — they're how rarely things come back, and how often customers return for a second piece.</p>
+          <h2 className="text-3xl md:text-4xl">Try it at your desk, risk-free.</h2>
+          <p className="mt-4 text-muted">Pay when it arrives, live with it for 30 days, and send it back with a free pickup if it isn't right. Wood and aluminium pieces carry up to 5 years of warranty.</p>
           <Button asChild size="lg" className="mt-8"><Link to="/shop">Shop the collection <ArrowRight /></Link></Button>
         </div>
       </section>

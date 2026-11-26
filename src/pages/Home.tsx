@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, Leaf, PackageCheck, RotateCcw, ShieldCheck, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ErrorState, Rating, SectionHeading } from "@/components/ui/misc";
+import { ErrorState, SectionHeading } from "@/components/ui/misc";
 import { Accordion } from "@/components/ui/accordion";
 import { ProductGrid } from "@/components/ProductCard";
 import { ProductImage } from "@/components/ProductImage";
@@ -9,7 +9,7 @@ import { Reveal } from "@/components/Reveal";
 import { useCategories, useProducts } from "@/lib/queries";
 import { usePageMeta } from "@/lib/seo";
 import { IMG } from "@/data/products";
-import { faqs, press, testimonials, usps } from "@/data/content";
+import { faqs, usps } from "@/data/content";
 import { formatPrice, unsplash } from "@/lib/utils";
 
 function Hero() {
@@ -42,8 +42,8 @@ function Hero() {
                 ))}
               </div>
               <div>
-                <Rating value={4.8} />
-                <p className="mt-0.5 text-xs text-muted">Loved by 12,000+ desks across India</p>
+                <p className="text-sm font-semibold">Walnut · Oak · Aluminium · Merino felt</p>
+                <p className="mt-0.5 text-xs text-muted">Pay on delivery · 30-day returns · Up to 5-year warranty</p>
               </div>
             </div>
           </div>
@@ -70,21 +70,6 @@ function Hero() {
             <ArrowUpRight className="ml-2 size-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function PressStrip() {
-  const row = [...press, ...press];
-  return (
-    <section aria-label="As featured in" className="mt-14 overflow-hidden border-y border-border py-6">
-      <div className="flex w-max animate-[marquee_40s_linear_infinite] gap-16 pr-16 motion-reduce:animate-none">
-        {row.map((p, i) => (
-          <span key={i} className="whitespace-nowrap font-display text-xl italic text-muted/80" aria-hidden={i >= press.length}>
-            {p}
-          </span>
-        ))}
       </div>
     </section>
   );
@@ -131,7 +116,7 @@ function Bestsellers() {
   const { data, isLoading, isError, refetch } = useProducts({ sort: "featured" });
   return (
     <section className="container-page mt-24 md:mt-32">
-      <SectionHeading eyebrow="Bestsellers" title="The pieces our customers build around." body="Each one tested on real desks for months before it reaches yours." />
+      <SectionHeading eyebrow="Bestsellers" title="The pieces most setups start with." body="Stands, mats and light: the three changes you notice in the first week." />
       {isError ? <ErrorState onRetry={() => refetch()} /> : <ProductGrid products={data?.slice(0, 8)} loading={isLoading} />}
     </section>
   );
@@ -226,28 +211,6 @@ function Setups() {
   );
 }
 
-function Testimonials() {
-  return (
-    <section className="container-page mt-24 md:mt-32">
-      <SectionHeading eyebrow="Reviews" title={<>4.8 out of 5, from <em className="text-accent">12,000+</em> desks.</>} align="center" />
-      <div className="grid gap-4 md:grid-cols-3">
-        {testimonials.map((t, i) => (
-          <Reveal key={t.name} delay={i * 0.08}>
-            <figure className="flex h-full flex-col rounded-[var(--radius-lg)] bg-surface p-8">
-              <Rating value={5} />
-              <blockquote className="mt-5 flex-1 font-display text-xl leading-snug">“{t.quote}”</blockquote>
-              <figcaption className="mt-6 border-t border-border pt-5">
-                <p className="font-semibold">{t.name}</p>
-                <p className="text-sm text-muted">{t.role}</p>
-              </figcaption>
-            </figure>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function Usps() {
   const icons = [Truck, RotateCcw, ShieldCheck, PackageCheck];
   return (
@@ -311,12 +274,10 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <PressStrip />
       <Categories />
       <Bestsellers />
       <Story />
       <Setups />
-      <Testimonials />
       <Usps />
       <HomeFaq />
       <FinalCta />
