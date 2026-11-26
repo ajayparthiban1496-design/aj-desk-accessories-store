@@ -9,6 +9,7 @@ import { AuthProvider } from "./auth/AuthProvider";
 import { CartProvider } from "./store/cart";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { initAnalytics } from "./lib/analytics";
+import { BASE_PATH } from "./lib/utils";
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 60_000, retry: 1, refetchOnWindowFocus: false } },
@@ -20,7 +21,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
+        <BrowserRouter basename={BASE_PATH || undefined}>
           <AuthProvider>
             <CartProvider>
               <App />

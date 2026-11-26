@@ -28,7 +28,7 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, State> {
             <button onClick={() => window.location.reload()} className="h-11 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground">
               Reload page
             </button>
-            <a href="/" className="grid h-11 place-items-center rounded-full border border-border px-6 text-sm font-semibold">
+            <a href={import.meta.env.BASE_URL} className="grid h-11 place-items-center rounded-full border border-border px-6 text-sm font-semibold">
               Go home
             </a>
           </div>

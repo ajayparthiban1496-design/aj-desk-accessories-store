@@ -1,6 +1,7 @@
 import { useEffect } from "react";
+import { BASE_PATH } from "@/lib/utils";
 
-const SITE = (import.meta.env.VITE_SITE_URL as string | undefined) ?? "https://ajdesk.store";
+const SITE = ((import.meta.env.VITE_SITE_URL as string | undefined) ?? "https://ajdesk.store").replace(/\/$/, "");
 
 function setMeta(attr: "name" | "property", key: string, content: string) {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
@@ -27,7 +28,9 @@ export function usePageMeta({ title, description, image, noindex }: PageMeta) {
     setMeta("name", "description", description);
     setMeta("property", "og:title", full);
     setMeta("property", "og:description", description);
-    setMeta("property", "og:url", SITE + window.location.pathname);
+    // VITE_SITE_URL already includes any sub-path, so strip it from the router path.
+    const pageUrl = SITE + (window.location.pathname.slice(BASE_PATH.length) || "/");
+    setMeta("property", "og:url", pageUrl);
     if (image) setMeta("property", "og:image", image);
     setMeta("name", "robots", noindex ? "noindex,nofollow" : "index,follow");
     let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
@@ -36,6 +39,6 @@ export function usePageMeta({ title, description, image, noindex }: PageMeta) {
       link.rel = "canonical";
       document.head.appendChild(link);
     }
-    link.href = SITE + window.location.pathname;
+    link.href = pageUrl;
   }, [title, description, image, noindex]);
 }

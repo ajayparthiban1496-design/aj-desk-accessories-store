@@ -7,6 +7,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Api } from "./types";
 import type { Order, OrderStatus, Product, Review, ShippingAddress } from "@/types";
 import { applyFilters } from "./filters";
+import { appUrl } from "@/lib/utils";
 
 interface VariantRow { id: string; name: string; swatch: string; stock: number; position: number }
 interface ProductRow {
@@ -100,7 +101,7 @@ export function createSupabaseApi(sb: SupabaseClient): Api {
     },
     async createCheckout(items, address) {
       const { data, error } = await sb.functions.invoke<{ url?: string; orderId?: string; error?: string }>("create-checkout", {
-        body: { items, address, origin: window.location.origin },
+        body: { items, address, origin: appUrl() },
       });
       if (error || !data || data.error) throw new Error(data?.error ?? "We couldn't start checkout. Please try again.");
       return { redirectUrl: data.url, orderId: data.orderId };

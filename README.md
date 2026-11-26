@@ -49,6 +49,7 @@ Open http://localhost:5173. With no Supabase env vars set, the app runs in **dem
 
 ## Deploy the frontend
 
+- **Sub-path hosting:** the app can also be served from a sub-path (e.g. GitHub Pages) by building with `BASE_PATH=/repo-name/`.
 - **Vercel:** import the repo; the build command is `npm run build` and the output folder is `dist`. `vercel.json` handles SPA rewrites.
 - **Netlify:** `netlify.toml` is included.
 - Add the `VITE_*` env vars in the host's dashboard, and update `public/robots.txt` and the sitemap with your domain.

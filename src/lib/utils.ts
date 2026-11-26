@@ -30,3 +30,11 @@ export function unsplash(id: string, w = 1200) {
 export function uid(prefix = "") {
   return prefix + Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
 }
+
+/** Base path the app is served from ("" at a domain root, "/repo-name" on GitHub Pages). */
+export const BASE_PATH = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+/** Absolute URL to a route in this app, e.g. appUrl("/account"). Used for auth and payment redirects. */
+export function appUrl(path = "") {
+  return `${window.location.origin}${BASE_PATH}${path}`;
+}

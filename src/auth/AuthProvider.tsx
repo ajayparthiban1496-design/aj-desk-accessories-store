@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 import type { Session } from "@supabase/supabase-js";
 import type { AppUser } from "@/types";
 import { supabase } from "@/lib/supabase";
+import { appUrl } from "@/lib/utils";
 
 interface AuthContextValue {
   user: AppUser | null;
@@ -88,7 +89,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
-        options: { data: { full_name: fullName }, emailRedirectTo: `${window.location.origin}/account` },
+        options: { data: { full_name: fullName }, emailRedirectTo: appUrl("/account") },
       });
       if (error) throw new Error(error.message);
       return { needsConfirmation: !data.session };
@@ -117,17 +118,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signUp,
       async signInWithMagicLink(email) {
         if (!supabase) notInDemo("Magic link sign-in");
-        const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: `${window.location.origin}/account` } });
+        const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: appUrl("/account") } });
         if (error) throw new Error(error.message);
       },
       async signInWithGoogle() {
         if (!supabase) notInDemo("Google sign-in");
-        const { error } = await supabase.auth.signInWithOAuth({ provider: "google", options: { redirectTo: `${window.location.origin}/account` } });
+        const { error } = await supabase.auth.signInWithOAuth({ provider: "google", options: { redirectTo: appUrl("/account") } });
         if (error) throw new Error(error.message);
       },
       async sendPasswordReset(email) {
         if (!supabase) notInDemo("Password reset email");
-        const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${window.location.origin}/reset-password` });
+        const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: appUrl("/reset-password") });
         if (error) throw new Error(error.message);
       },
       async updatePassword(password) {
