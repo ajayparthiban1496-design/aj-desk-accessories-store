@@ -1,4 +1,4 @@
-import type { Category, Product, Review } from "@/types";
+import type { Category, Product } from "@/types";
 import { unsplash } from "@/lib/utils";
 
 /** Verified Unsplash photo IDs used across the store. */
@@ -25,11 +25,11 @@ export const IMG = {
 } as const;
 
 export const categories: Category[] = [
-  { slug: "stands", name: "Stands & Risers", description: "Lift your screens to eye level.", image: unsplash(IMG.laptopStand, 800) },
-  { slug: "mats", name: "Desk Mats & Pads", description: "Felt, cork and vegan leather surfaces.", image: unsplash(IMG.brightDesk, 800) },
-  { slug: "lighting", name: "Lighting", description: "Glare-free light for late sessions.", image: unsplash(IMG.warmLamp, 800) },
-  { slug: "organisation", name: "Organisation", description: "Trays, docks and cable control.", image: unsplash(IMG.tableFlatlay, 800) },
-  { slug: "audio", name: "Audio Stands", description: "A proper home for your headphones.", image: unsplash(IMG.headphones, 800) },
+  { id: "stands", slug: "stands", name: "Stands & Risers", description: "Lift your screens to eye level.", image: unsplash(IMG.laptopStand, 800) },
+  { id: "mats", slug: "mats", name: "Desk Mats & Pads", description: "Felt, cork and vegan leather surfaces.", image: unsplash(IMG.brightDesk, 800) },
+  { id: "lighting", slug: "lighting", name: "Lighting", description: "Glare-free light for late sessions.", image: unsplash(IMG.warmLamp, 800) },
+  { id: "organisation", slug: "organisation", name: "Organisation", description: "Trays, docks and cable control.", image: unsplash(IMG.tableFlatlay, 800) },
+  { id: "audio", slug: "audio", name: "Audio Stands", description: "A proper home for your headphones.", image: unsplash(IMG.headphones, 800) },
 ];
 
 const WALNUT = { name: "Walnut", swatch: "#6b4429" };
@@ -42,11 +42,22 @@ const SAND = { name: "Sand Felt", swatch: "#cbbba2" };
 const TAN = { name: "Tan Leather", swatch: "#a8703f" };
 
 function v(productId: string, list: { name: string; swatch: string }[], stock = 40) {
-  return list.map((x, i) => ({ id: `${productId}-${x.name.toLowerCase().replace(/\s+/g, "-")}`, ...x, stock: i === list.length - 1 && stock < 40 ? stock : 40 - i * 7 }));
+  return list.map((x, i) => ({
+    id: `${productId}-${x.name.toLowerCase().replace(/\s+/g, "-")}`,
+    ...x,
+    stock: i === list.length - 1 && stock < 40 ? stock : 40 - i * 7,
+    sku: null,
+  }));
 }
 
-const base = { isActive: true, isFeatured: false, compareAtPrice: null, badge: null } as const;
+const base = { isFeatured: false, compareAtPrice: null, badge: null } as const;
 
+/**
+ * The catalogue as launched. Two jobs:
+ * 1. Source for the Medusa seed (`npm run catalog:export` writes it to the backend).
+ * 2. Offline backup: shown when the shop backend can't be reached; ordering is paused then.
+ * Live prices, stock and products always come from Medusa.
+ */
 export const seedProducts: Product[] = [
   {
     ...base,
@@ -63,8 +74,6 @@ export const seedProducts: Product[] = [
     variants: v("p-arc-stand", [SILVER, SPACE, BLACK]),
     features: ["Raises screen by 15 cm", "Fits 11–17\" laptops", "Passive cooling channel", "Non-slip silicone pads"],
     specs: { Material: "6061 anodised aluminium", Dimensions: "26 × 24 × 15 cm", Weight: "1.1 kg", "Max load": "8 kg", Warranty: "5 years" },
-    rating: 4.8,
-    reviewCount: 412,
     badge: "Bestseller",
     isFeatured: true,
     createdAt: "2026-03-02T10:00:00Z",
@@ -83,8 +92,6 @@ export const seedProducts: Product[] = [
     variants: v("p-walnut-riser", [WALNUT, OAK], 6),
     features: ["Solid FSC walnut or oak", "12° ergonomic tilt", "Hand-oiled finish", "Felt-lined base"],
     specs: { Material: "Solid American walnut", Dimensions: "30 × 25 × 9 cm", Weight: "1.4 kg", Finish: "Natural hardwax oil", Warranty: "5 years" },
-    rating: 4.9,
-    reviewCount: 168,
     badge: "Limited",
     isFeatured: true,
     createdAt: "2026-06-10T10:00:00Z",
@@ -104,8 +111,6 @@ export const seedProducts: Product[] = [
     variants: v("p-plinth-riser", [WALNUT, OAK, BLACK]),
     features: ["90 cm wide top", "Keyboard fits underneath", "Rear cable slot", "Holds up to 30 kg"],
     specs: { Material: "Walnut veneer, powder-coated steel", Dimensions: "90 × 24 × 11 cm", Weight: "4.2 kg", "Max load": "30 kg", Warranty: "5 years" },
-    rating: 4.7,
-    reviewCount: 96,
     isFeatured: true,
     createdAt: "2026-02-14T10:00:00Z",
   },
@@ -123,8 +128,6 @@ export const seedProducts: Product[] = [
     variants: v("p-felt-mat", [CHARCOAL, SAND]),
     features: ["100% merino wool felt", "Natural cork base", "Dampens typing noise", "Two sizes available"],
     specs: { Material: "Merino felt, natural cork", Dimensions: "90 × 40 cm", Thickness: "4 mm", Care: "Spot clean, lint roller", Warranty: "2 years" },
-    rating: 4.8,
-    reviewCount: 534,
     badge: "Bestseller",
     isFeatured: true,
     createdAt: "2026-01-20T10:00:00Z",
@@ -144,8 +147,6 @@ export const seedProducts: Product[] = [
     variants: v("p-leather-mat", [TAN, BLACK, SAND]),
     features: ["Reversible two-tone", "Water-resistant surface", "Stitched edges", "Rolls flat for travel"],
     specs: { Material: "Plant-based PU leather", Dimensions: "80 × 40 cm", Thickness: "3 mm", Care: "Wipe with damp cloth", Warranty: "1 year" },
-    rating: 4.6,
-    reviewCount: 287,
     createdAt: "2026-04-05T10:00:00Z",
   },
   {
@@ -162,8 +163,6 @@ export const seedProducts: Product[] = [
     variants: v("p-glide-pad", [BLACK, CHARCOAL, SAND]),
     features: ["Micro-weave control surface", "Anti-fray stitched edge", "4 mm rubber base", "Machine washable"],
     specs: { Material: "Micro-weave cloth, natural rubber", Dimensions: "36 × 30 cm", Thickness: "4 mm", Warranty: "1 year" },
-    rating: 4.7,
-    reviewCount: 621,
     createdAt: "2026-05-11T10:00:00Z",
   },
   {
@@ -181,8 +180,6 @@ export const seedProducts: Product[] = [
     variants: v("p-halo-bar", [BLACK, SILVER]),
     features: ["Asymmetric anti-glare optics", "2700K–6500K colour range", "Wireless control dial", "Auto-dimming sensor", "USB-C powered"],
     specs: { Power: "USB-C, 5V/1A", Length: "45 cm", CRI: "Ra ≥ 95", "Colour temp.": "2700K–6500K", Warranty: "2 years" },
-    rating: 4.9,
-    reviewCount: 358,
     badge: "Bestseller",
     isFeatured: true,
     createdAt: "2026-07-01T10:00:00Z",
@@ -201,8 +198,6 @@ export const seedProducts: Product[] = [
     variants: v("p-lumen-lamp", [BLACK, { name: "Bone", swatch: "#e8e2d6" }]),
     features: ["Flicker-free LED", "5-level touch dimming", "Friction hinges", "Weighted steel base"],
     specs: { Power: "8W LED, 220–240V", Height: "Up to 62 cm", "Colour temp.": "3000K", Lifespan: "50,000 hours", Warranty: "2 years" },
-    rating: 4.6,
-    reviewCount: 142,
     createdAt: "2026-03-28T10:00:00Z",
   },
   {
@@ -219,8 +214,6 @@ export const seedProducts: Product[] = [
     variants: v("p-ember-lamp", [{ name: "Amber", swatch: "#d08a3b" }, { name: "Rose", swatch: "#c97a72" }]),
     features: ["Rechargeable, 8-hour battery", "Stepless dimming", "Warm 2200K glow", "Aluminium body"],
     specs: { Battery: "4000 mAh, USB-C", Height: "24 cm", "Colour temp.": "2200K", Warranty: "1 year" },
-    rating: 4.7,
-    reviewCount: 88,
     badge: "New",
     createdAt: "2026-10-18T10:00:00Z",
   },
@@ -238,8 +231,6 @@ export const seedProducts: Product[] = [
     variants: v("p-dock-tray", [WALNUT, OAK]),
     features: ["Solid walnut", "Three compartments", "Magnetic phone rest", "Felt-lined base"],
     specs: { Material: "Solid walnut, wool felt", Dimensions: "28 × 12 × 3 cm", Weight: "540 g", Warranty: "5 years" },
-    rating: 4.8,
-    reviewCount: 203,
     createdAt: "2026-02-02T10:00:00Z",
   },
   {
@@ -256,8 +247,6 @@ export const seedProducts: Product[] = [
     variants: v("p-cable-kit", [BLACK, { name: "White", swatch: "#f1f1ef" }]),
     features: ["Under-desk steel tray", "6 magnetic cable clips", "2 m braided sleeve", "No-drill adhesive mounts"],
     specs: { Contents: "Tray, 6 clips, sleeve, 10 ties", "Tray size": "40 × 12 × 10 cm", Warranty: "1 year" },
-    rating: 4.5,
-    reviewCount: 177,
     createdAt: "2026-08-08T10:00:00Z",
   },
   {
@@ -274,8 +263,6 @@ export const seedProducts: Product[] = [
     variants: v("p-stand-phone", [SILVER, SPACE]),
     features: ["Weighted aluminium base", "Portrait or landscape", "Cable pass-through", "Fits all phone sizes"],
     specs: { Material: "Aluminium", Dimensions: "8 × 9 × 11 cm", Weight: "320 g", Warranty: "2 years" },
-    rating: 4.6,
-    reviewCount: 119,
     badge: "New",
     createdAt: "2026-09-21T10:00:00Z",
   },
@@ -293,29 +280,6 @@ export const seedProducts: Product[] = [
     variants: v("p-hp-stand", [WALNUT, OAK, BLACK]),
     features: ["Solid walnut base", "Leather-padded cradle", "Integrated cable hook", "Fits all over-ear headphones"],
     specs: { Material: "Walnut, steel, leather", Height: "27 cm", Weight: "780 g", Warranty: "5 years" },
-    rating: 4.8,
-    reviewCount: 74,
     createdAt: "2026-05-30T10:00:00Z",
   },
 ];
-
-const reviewers = ["Priya S.", "Arjun M.", "Kavya R.", "Rahul D.", "Meera N.", "Vikram T.", "Ananya K.", "Rohan P."];
-const reviewTexts: [string, string][] = [
-  ["Worth every rupee", "The build quality is on another level. Feels like something that will last a decade, and my desk looks so much calmer."],
-  ["My neck thanks me", "I work 9-hour days on a laptop and the difference after one week was obvious. Wish I had bought it sooner."],
-  ["Beautiful finish", "Packaging was lovely and the finish is even better in person. Colleagues keep asking where I got it."],
-  ["Solid, simple, premium", "No wobble, no plastic feel. Does one thing and does it perfectly."],
-  ["Great, minor nitpick", "Love it overall. Delivery took a day longer than promised to Pune, but support kept me updated."],
-];
-
-export const seedReviews: Review[] = seedProducts.flatMap((p, pi) =>
-  reviewTexts.slice(0, 3 + (pi % 3)).map(([title, body], i) => ({
-    id: `r-${p.id}-${i}`,
-    productId: p.id,
-    author: reviewers[(pi + i) % reviewers.length],
-    rating: i === 4 ? 4 : 5,
-    title,
-    body,
-    createdAt: new Date(Date.UTC(2026, 9 - i, 3 + pi)).toISOString(),
-  })),
-);

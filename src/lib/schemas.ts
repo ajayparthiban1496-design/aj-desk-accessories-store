@@ -49,24 +49,3 @@ export const contactSchema = z.object({
   message: z.string().trim().min(10, "Tell us a little more (10+ characters)").max(2000),
 });
 export type ContactInput = z.infer<typeof contactSchema>;
-
-export const reviewSchema = z.object({
-  rating: z.number().int().min(1, "Choose a rating").max(5),
-  title: z.string().trim().min(3, "Add a short title").max(80),
-  body: z.string().trim().min(10, "Share a few more words").max(1500),
-});
-export type ReviewInput = z.infer<typeof reviewSchema>;
-
-export const productSchema = z.object({
-  name: z.string().trim().min(3).max(100),
-  slug: z.string().trim().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "Lowercase letters, numbers and dashes only"),
-  tagline: z.string().trim().min(3).max(140),
-  description: z.string().trim().min(20).max(4000),
-  category: z.enum(["stands", "mats", "lighting", "organisation", "audio"]),
-  priceRupees: z.number({ message: "Enter a price" }).int().min(1).max(500000),
-  compareAtRupees: z.number().int().min(0).max(500000).optional(),
-  image: z.string().trim().url("Enter an image URL"),
-  isFeatured: z.boolean(),
-  isActive: z.boolean(),
-});
-export type ProductInput = z.infer<typeof productSchema>;

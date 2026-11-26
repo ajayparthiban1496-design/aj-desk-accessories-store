@@ -1,0 +1,650 @@
+{
+  "categories": [
+    {
+      "handle": "stands",
+      "name": "Stands & Risers",
+      "description": "Lift your screens to eye level.",
+      "image": "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=75&auto=format&fit=crop",
+      "rank": 0
+    },
+    {
+      "handle": "mats",
+      "name": "Desk Mats & Pads",
+      "description": "Felt, cork and vegan leather surfaces.",
+      "image": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&q=75&auto=format&fit=crop",
+      "rank": 1
+    },
+    {
+      "handle": "lighting",
+      "name": "Lighting",
+      "description": "Glare-free light for late sessions.",
+      "image": "https://images.unsplash.com/photo-1616400619175-5beda3a17896?w=800&q=75&auto=format&fit=crop",
+      "rank": 2
+    },
+    {
+      "handle": "organisation",
+      "name": "Organisation",
+      "description": "Trays, docks and cable control.",
+      "image": "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=800&q=75&auto=format&fit=crop",
+      "rank": 3
+    },
+    {
+      "handle": "audio",
+      "name": "Audio Stands",
+      "description": "A proper home for your headphones.",
+      "image": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&q=75&auto=format&fit=crop",
+      "rank": 4
+    }
+  ],
+  "products": [
+    {
+      "storefront_id": "p-arc-stand",
+      "handle": "arc-aluminium-laptop-stand",
+      "title": "Arc Aluminium Laptop Stand",
+      "subtitle": "One-piece aluminium, lifts your screen 15 cm.",
+      "description": "Machined from a single sheet of 5 mm aerospace-grade aluminium, the Arc raises your laptop to a healthier eye line and opens up the space underneath for a keyboard. Silicone pads grip without scratching, and the open back pulls heat away from your machine.",
+      "category": "stands",
+      "price": 3499,
+      "compare_at_price": 4299,
+      "images": [
+        "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=1200&q=75&auto=format&fit=crop"
+      ],
+      "features": [
+        "Raises screen by 15 cm",
+        "Fits 11–17\" laptops",
+        "Passive cooling channel",
+        "Non-slip silicone pads"
+      ],
+      "specs": {
+        "Material": "6061 anodised aluminium",
+        "Dimensions": "26 × 24 × 15 cm",
+        "Weight": "1.1 kg",
+        "Max load": "8 kg",
+        "Warranty": "5 years"
+      },
+      "badge": "Bestseller",
+      "featured": true,
+      "created_at": "2026-03-02T10:00:00Z",
+      "variants": [
+        {
+          "title": "Silver",
+          "sku": "AJ-ARC-STAND-SILVER",
+          "swatch": "#c9cbcd",
+          "stock": 40
+        },
+        {
+          "title": "Space Grey",
+          "sku": "AJ-ARC-STAND-SPACE-GREY",
+          "swatch": "#55585c",
+          "stock": 33
+        },
+        {
+          "title": "Midnight",
+          "sku": "AJ-ARC-STAND-MIDNIGHT",
+          "swatch": "#1f1f1f",
+          "stock": 26
+        }
+      ]
+    },
+    {
+      "storefront_id": "p-walnut-riser",
+      "handle": "walnut-laptop-riser",
+      "title": "Walnut Laptop Riser",
+      "subtitle": "Solid hardwood with a hand-oiled finish.",
+      "description": "Cut from FSC-certified American walnut and finished by hand with a natural hardwax oil. A gentle 12° tilt makes typing on the laptop keyboard comfortable when you are not using an external one, and the grain gets richer with age.",
+      "category": "stands",
+      "price": 4599,
+      "compare_at_price": null,
+      "images": [
+        "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1616400619175-5beda3a17896?w=1200&q=75&auto=format&fit=crop"
+      ],
+      "features": [
+        "Solid FSC walnut or oak",
+        "12° ergonomic tilt",
+        "Hand-oiled finish",
+        "Felt-lined base"
+      ],
+      "specs": {
+        "Material": "Solid American walnut",
+        "Dimensions": "30 × 25 × 9 cm",
+        "Weight": "1.4 kg",
+        "Finish": "Natural hardwax oil",
+        "Warranty": "5 years"
+      },
+      "badge": "Limited",
+      "featured": true,
+      "created_at": "2026-06-10T10:00:00Z",
+      "variants": [
+        {
+          "title": "Walnut",
+          "sku": "AJ-WALNUT-RISER-WALNUT",
+          "swatch": "#6b4429",
+          "stock": 40
+        },
+        {
+          "title": "Oak",
+          "sku": "AJ-WALNUT-RISER-OAK",
+          "swatch": "#c9a272",
+          "stock": 6
+        }
+      ]
+    },
+    {
+      "storefront_id": "p-plinth-riser",
+      "handle": "plinth-monitor-riser-shelf",
+      "title": "Plinth Monitor Riser Shelf",
+      "subtitle": "A desk shelf that hides the clutter.",
+      "description": "A wide shelf that lifts your monitor and creates a dedicated home for keyboards, notebooks and chargers underneath. Steel legs, a hardwood top, and an integrated cable slot at the back.",
+      "category": "stands",
+      "price": 7999,
+      "compare_at_price": 8999,
+      "images": [
+        "https://images.unsplash.com/photo-1586210579191-33b45e38fa2c?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=1200&q=75&auto=format&fit=crop"
+      ],
+      "features": [
+        "90 cm wide top",
+        "Keyboard fits underneath",
+        "Rear cable slot",
+        "Holds up to 30 kg"
+      ],
+      "specs": {
+        "Material": "Walnut veneer, powder-coated steel",
+        "Dimensions": "90 × 24 × 11 cm",
+        "Weight": "4.2 kg",
+        "Max load": "30 kg",
+        "Warranty": "5 years"
+      },
+      "badge": null,
+      "featured": true,
+      "created_at": "2026-02-14T10:00:00Z",
+      "variants": [
+        {
+          "title": "Walnut",
+          "sku": "AJ-PLINTH-RISER-WALNUT",
+          "swatch": "#6b4429",
+          "stock": 40
+        },
+        {
+          "title": "Oak",
+          "sku": "AJ-PLINTH-RISER-OAK",
+          "swatch": "#c9a272",
+          "stock": 33
+        },
+        {
+          "title": "Midnight",
+          "sku": "AJ-PLINTH-RISER-MIDNIGHT",
+          "swatch": "#1f1f1f",
+          "stock": 26
+        }
+      ]
+    },
+    {
+      "storefront_id": "p-felt-mat",
+      "handle": "merino-felt-desk-mat",
+      "title": "Merino Felt Desk Mat",
+      "subtitle": "Soft, quiet, and kind to your wrists.",
+      "description": "Pressed from 100% merino wool felt with a natural cork underside that stays put. It dampens keyboard noise, gives your mouse a smooth glide, and turns a hard desk into a warm, calm surface.",
+      "category": "mats",
+      "price": 2499,
+      "compare_at_price": null,
+      "images": [
+        "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&q=75&auto=format&fit=crop"
+      ],
+      "features": [
+        "100% merino wool felt",
+        "Natural cork base",
+        "Dampens typing noise",
+        "Two sizes available"
+      ],
+      "specs": {
+        "Material": "Merino felt, natural cork",
+        "Dimensions": "90 × 40 cm",
+        "Thickness": "4 mm",
+        "Care": "Spot clean, lint roller",
+        "Warranty": "2 years"
+      },
+      "badge": "Bestseller",
+      "featured": true,
+      "created_at": "2026-01-20T10:00:00Z",
+      "variants": [
+        {
+          "title": "Charcoal Felt",
+          "sku": "AJ-FELT-MAT-CHARCOAL-FELT",
+          "swatch": "#3a3a3a",
+          "stock": 40
+        },
+        {
+          "title": "Sand Felt",
+          "sku": "AJ-FELT-MAT-SAND-FELT",
+          "swatch": "#cbbba2",
+          "stock": 33
+        }
+      ]
+    },
+    {
+      "storefront_id": "p-leather-mat",
+      "handle": "vegan-leather-desk-pad",
+      "title": "Vegan Leather Desk Pad",
+      "subtitle": "Water-resistant, reversible, refined.",
+      "description": "A double-sided desk pad in plant-based vegan leather — smooth on one side, micro-suede on the other. Spill-resistant, wipes clean, and its stitched edges will not fray.",
+      "category": "mats",
+      "price": 1899,
+      "compare_at_price": 2299,
+      "images": [
+        "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=1200&q=75&auto=format&fit=crop"
+      ],
+      "features": [
+        "Reversible two-tone",
+        "Water-resistant surface",
+        "Stitched edges",
+        "Rolls flat for travel"
+      ],
+      "specs": {
+        "Material": "Plant-based PU leather",
+        "Dimensions": "80 × 40 cm",
+        "Thickness": "3 mm",
+        "Care": "Wipe with damp cloth",
+        "Warranty": "1 year"
+      },
+      "badge": null,
+      "featured": false,
+      "created_at": "2026-04-05T10:00:00Z",
+      "variants": [
+        {
+          "title": "Tan Leather",
+          "sku": "AJ-LEATHER-MAT-TAN-LEATHER",
+          "swatch": "#a8703f",
+          "stock": 40
+        },
+        {
+          "title": "Midnight",
+          "sku": "AJ-LEATHER-MAT-MIDNIGHT",
+          "swatch": "#1f1f1f",
+          "stock": 33
+        },
+        {
+          "title": "Sand Felt",
+          "sku": "AJ-LEATHER-MAT-SAND-FELT",
+          "swatch": "#cbbba2",
+          "stock": 26
+        }
+      ]
+    },
+    {
+      "storefront_id": "p-glide-pad",
+      "handle": "glide-precision-mouse-pad",
+      "title": "Glide Precision Mouse Pad",
+      "subtitle": "Micro-weave cloth tuned for control.",
+      "description": "A compact mouse pad with a tightly woven micro-texture surface for precise tracking on any sensor. The anti-fray edge and dense rubber base keep it flat and in place for years.",
+      "category": "mats",
+      "price": 799,
+      "compare_at_price": null,
+      "images": [
+        "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=1200&q=75&auto=format&fit=crop"
+      ],
+      "features": [
+        "Micro-weave control surface",
+        "Anti-fray stitched edge",
+        "4 mm rubber base",
+        "Machine washable"
+      ],
+      "specs": {
+        "Material": "Micro-weave cloth, natural rubber",
+        "Dimensions": "36 × 30 cm",
+        "Thickness": "4 mm",
+        "Warranty": "1 year"
+      },
+      "badge": null,
+      "featured": false,
+      "created_at": "2026-05-11T10:00:00Z",
+      "variants": [
+        {
+          "title": "Midnight",
+          "sku": "AJ-GLIDE-PAD-MIDNIGHT",
+          "swatch": "#1f1f1f",
+          "stock": 40
+        },
+        {
+          "title": "Charcoal Felt",
+          "sku": "AJ-GLIDE-PAD-CHARCOAL-FELT",
+          "swatch": "#3a3a3a",
+          "stock": 33
+        },
+        {
+          "title": "Sand Felt",
+          "sku": "AJ-GLIDE-PAD-SAND-FELT",
+          "swatch": "#cbbba2",
+          "stock": 26
+        }
+      ]
+    },
+    {
+      "storefront_id": "p-halo-bar",
+      "handle": "halo-monitor-light-bar",
+      "title": "Halo Monitor Light Bar",
+      "subtitle": "Asymmetric light, zero screen glare.",
+      "description": "Halo clips onto your monitor and casts light only onto your desk — never onto your screen or into your eyes. Adjust brightness and colour temperature from warm 2700K to daylight 6500K with the wireless dial, and let the ambient sensor do the rest.",
+      "category": "lighting",
+      "price": 5499,
+      "compare_at_price": 6499,
+      "images": [
+        "https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1586210579191-33b45e38fa2c?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=1200&q=75&auto=format&fit=crop"
+      ],
+      "features": [
+        "Asymmetric anti-glare optics",
+        "2700K–6500K colour range",
+        "Wireless control dial",
+        "Auto-dimming sensor",
+        "USB-C powered"
+      ],
+      "specs": {
+        "Power": "USB-C, 5V/1A",
+        "Length": "45 cm",
+        "CRI": "Ra ≥ 95",
+        "Colour temp.": "2700K–6500K",
+        "Warranty": "2 years"
+      },
+      "badge": "Bestseller",
+      "featured": true,
+      "created_at": "2026-07-01T10:00:00Z",
+      "variants": [
+        {
+          "title": "Midnight",
+          "sku": "AJ-HALO-BAR-MIDNIGHT",
+          "swatch": "#1f1f1f",
+          "stock": 40
+        },
+        {
+          "title": "Silver",
+          "sku": "AJ-HALO-BAR-SILVER",
+          "swatch": "#c9cbcd",
+          "stock": 33
+        }
+      ]
+    },
+    {
+      "storefront_id": "p-lumen-lamp",
+      "handle": "lumen-architect-desk-lamp",
+      "title": "Lumen Architect Desk Lamp",
+      "subtitle": "A classic silhouette with modern LED.",
+      "description": "An architect-style lamp with a weighted steel base, friction hinges that hold their position, and a flicker-free LED module rated for 50,000 hours. Touch-dim through five levels.",
+      "category": "lighting",
+      "price": 3999,
+      "compare_at_price": null,
+      "images": [
+        "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1616400619175-5beda3a17896?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=75&auto=format&fit=crop"
+      ],
+      "features": [
+        "Flicker-free LED",
+        "5-level touch dimming",
+        "Friction hinges",
+        "Weighted steel base"
+      ],
+      "specs": {
+        "Power": "8W LED, 220–240V",
+        "Height": "Up to 62 cm",
+        "Colour temp.": "3000K",
+        "Lifespan": "50,000 hours",
+        "Warranty": "2 years"
+      },
+      "badge": null,
+      "featured": false,
+      "created_at": "2026-03-28T10:00:00Z",
+      "variants": [
+        {
+          "title": "Midnight",
+          "sku": "AJ-LUMEN-LAMP-MIDNIGHT",
+          "swatch": "#1f1f1f",
+          "stock": 40
+        },
+        {
+          "title": "Bone",
+          "sku": "AJ-LUMEN-LAMP-BONE",
+          "swatch": "#e8e2d6",
+          "stock": 33
+        }
+      ]
+    },
+    {
+      "storefront_id": "p-ember-lamp",
+      "handle": "ember-ambient-glow-lamp",
+      "title": "Ember Ambient Glow Lamp",
+      "subtitle": "Sunset tones for evening focus.",
+      "description": "A small rechargeable lamp that bathes the wall behind your desk in warm amber light. Built to reduce eye strain during late sessions and to make your workspace feel like somewhere you want to be.",
+      "category": "lighting",
+      "price": 2999,
+      "compare_at_price": null,
+      "images": [
+        "https://images.unsplash.com/photo-1616400619175-5beda3a17896?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=1200&q=75&auto=format&fit=crop"
+      ],
+      "features": [
+        "Rechargeable, 8-hour battery",
+        "Stepless dimming",
+        "Warm 2200K glow",
+        "Aluminium body"
+      ],
+      "specs": {
+        "Battery": "4000 mAh, USB-C",
+        "Height": "24 cm",
+        "Colour temp.": "2200K",
+        "Warranty": "1 year"
+      },
+      "badge": "New",
+      "featured": false,
+      "created_at": "2026-10-18T10:00:00Z",
+      "variants": [
+        {
+          "title": "Amber",
+          "sku": "AJ-EMBER-LAMP-AMBER",
+          "swatch": "#d08a3b",
+          "stock": 40
+        },
+        {
+          "title": "Rose",
+          "sku": "AJ-EMBER-LAMP-ROSE",
+          "swatch": "#c97a72",
+          "stock": 33
+        }
+      ]
+    },
+    {
+      "storefront_id": "p-dock-tray",
+      "handle": "dock-walnut-desk-tray",
+      "title": "Dock Walnut Desk Tray",
+      "subtitle": "A place for pens, keys and everything small.",
+      "description": "A carved walnut catch-all with three compartments and a magnetic phone rest. It keeps the small things together so your desk stays clear for the work that matters.",
+      "category": "organisation",
+      "price": 2199,
+      "compare_at_price": null,
+      "images": [
+        "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=1200&q=75&auto=format&fit=crop"
+      ],
+      "features": [
+        "Solid walnut",
+        "Three compartments",
+        "Magnetic phone rest",
+        "Felt-lined base"
+      ],
+      "specs": {
+        "Material": "Solid walnut, wool felt",
+        "Dimensions": "28 × 12 × 3 cm",
+        "Weight": "540 g",
+        "Warranty": "5 years"
+      },
+      "badge": null,
+      "featured": false,
+      "created_at": "2026-02-02T10:00:00Z",
+      "variants": [
+        {
+          "title": "Walnut",
+          "sku": "AJ-DOCK-TRAY-WALNUT",
+          "swatch": "#6b4429",
+          "stock": 40
+        },
+        {
+          "title": "Oak",
+          "sku": "AJ-DOCK-TRAY-OAK",
+          "swatch": "#c9a272",
+          "stock": 33
+        }
+      ]
+    },
+    {
+      "storefront_id": "p-cable-kit",
+      "handle": "tidy-cable-management-kit",
+      "title": "Tidy Cable Management Kit",
+      "subtitle": "Magnetic clips, sleeves and an under-desk tray.",
+      "description": "Everything you need to make cables disappear: an under-desk steel tray, braided sleeves, six weighted magnetic clips and reusable velcro ties. Installs in fifteen minutes with no drilling.",
+      "category": "organisation",
+      "price": 1499,
+      "compare_at_price": null,
+      "images": [
+        "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1586210579191-33b45e38fa2c?w=1200&q=75&auto=format&fit=crop"
+      ],
+      "features": [
+        "Under-desk steel tray",
+        "6 magnetic cable clips",
+        "2 m braided sleeve",
+        "No-drill adhesive mounts"
+      ],
+      "specs": {
+        "Contents": "Tray, 6 clips, sleeve, 10 ties",
+        "Tray size": "40 × 12 × 10 cm",
+        "Warranty": "1 year"
+      },
+      "badge": null,
+      "featured": false,
+      "created_at": "2026-08-08T10:00:00Z",
+      "variants": [
+        {
+          "title": "Midnight",
+          "sku": "AJ-CABLE-KIT-MIDNIGHT",
+          "swatch": "#1f1f1f",
+          "stock": 40
+        },
+        {
+          "title": "White",
+          "sku": "AJ-CABLE-KIT-WHITE",
+          "swatch": "#f1f1ef",
+          "stock": 33
+        }
+      ]
+    },
+    {
+      "storefront_id": "p-stand-phone",
+      "handle": "perch-phone-stand",
+      "title": "Perch Phone Stand",
+      "subtitle": "Weighted aluminium, perfect viewing angle.",
+      "description": "A heavy little stand that holds your phone at a readable angle for video calls and two-factor codes. Works in portrait or landscape, with a pass-through for the charging cable.",
+      "category": "organisation",
+      "price": 999,
+      "compare_at_price": null,
+      "images": [
+        "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=75&auto=format&fit=crop"
+      ],
+      "features": [
+        "Weighted aluminium base",
+        "Portrait or landscape",
+        "Cable pass-through",
+        "Fits all phone sizes"
+      ],
+      "specs": {
+        "Material": "Aluminium",
+        "Dimensions": "8 × 9 × 11 cm",
+        "Weight": "320 g",
+        "Warranty": "2 years"
+      },
+      "badge": "New",
+      "featured": false,
+      "created_at": "2026-09-21T10:00:00Z",
+      "variants": [
+        {
+          "title": "Silver",
+          "sku": "AJ-STAND-PHONE-SILVER",
+          "swatch": "#c9cbcd",
+          "stock": 40
+        },
+        {
+          "title": "Space Grey",
+          "sku": "AJ-STAND-PHONE-SPACE-GREY",
+          "swatch": "#55585c",
+          "stock": 33
+        }
+      ]
+    },
+    {
+      "storefront_id": "p-hp-stand",
+      "handle": "cradle-headphone-stand",
+      "title": "Cradle Headphone Stand",
+      "subtitle": "Walnut and steel, shaped to protect the headband.",
+      "description": "A wide, padded cradle preserves the shape of your headband, while the solid walnut base anchors it to the desk. Includes a tuck-away hook for your cable.",
+      "category": "audio",
+      "price": 2799,
+      "compare_at_price": null,
+      "images": [
+        "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=1200&q=75&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=1200&q=75&auto=format&fit=crop"
+      ],
+      "features": [
+        "Solid walnut base",
+        "Leather-padded cradle",
+        "Integrated cable hook",
+        "Fits all over-ear headphones"
+      ],
+      "specs": {
+        "Material": "Walnut, steel, leather",
+        "Height": "27 cm",
+        "Weight": "780 g",
+        "Warranty": "5 years"
+      },
+      "badge": null,
+      "featured": false,
+      "created_at": "2026-05-30T10:00:00Z",
+      "variants": [
+        {
+          "title": "Walnut",
+          "sku": "AJ-HP-STAND-WALNUT",
+          "swatch": "#6b4429",
+          "stock": 40
+        },
+        {
+          "title": "Oak",
+          "sku": "AJ-HP-STAND-OAK",
+          "swatch": "#c9a272",
+          "stock": 33
+        },
+        {
+          "title": "Midnight",
+          "sku": "AJ-HP-STAND-MIDNIGHT",
+          "swatch": "#1f1f1f",
+          "stock": 26
+        }
+      ]
+    }
+  ]
+}

@@ -3,7 +3,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, Check } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { api } from "@/lib/api";
+import { subscribeNewsletter } from "@/lib/medusa/catalog";
+import { friendlyError } from "@/lib/medusa/sdk";
 import { emailSchema, type EmailInput } from "@/lib/schemas";
 import { cn } from "@/lib/utils";
 import { track } from "@/lib/analytics";
@@ -14,13 +15,13 @@ export function Newsletter({ className, dark }: { className?: string; dark?: boo
 
   const onSubmit = async ({ email }: EmailInput) => {
     try {
-      await api.subscribeNewsletter(email);
+      await subscribeNewsletter(email);
       setDone(true);
       reset();
       track("Newsletter signup");
       toast.success("You're in. Welcome to the studio letters.");
     } catch (e) {
-      toast.error((e as Error).message);
+      toast.error(friendlyError(e));
     }
   };
 

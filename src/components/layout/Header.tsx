@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Menu, Search, ShoppingBag, User, X } from "lucide-react";
 import { useCart } from "@/store/cart";
 import { useAuth } from "@/auth/AuthProvider";
-import { categories } from "@/data/products";
+import { useCategories } from "@/lib/queries";
 import { cn } from "@/lib/utils";
 import { Sheet } from "@/components/ui/sheet";
 import { ThemeToggle } from "./ThemeToggle";
@@ -21,6 +21,7 @@ const nav = [
 export function Header() {
   const { count, open } = useCart();
   const { user } = useAuth();
+  const { data: categories = [] } = useCategories();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");

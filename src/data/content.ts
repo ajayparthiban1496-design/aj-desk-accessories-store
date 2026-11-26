@@ -23,11 +23,11 @@ export const faqs: { q: string; a: string; group: "Orders" | "Shipping" | "Produ
   { group: "Shipping", q: "Is shipping free?", a: "Shipping is free on all orders over ₹1,999. Below that we charge a flat ₹149 anywhere in India." },
   { group: "Shipping", q: "Do you ship internationally?", a: "Not yet — we currently deliver across India only. Join the newsletter and we'll let you know when international shipping opens." },
   { group: "Returns", q: "What is your return policy?", a: "You have 30 days from delivery to return any unused product in its original packaging for a full refund. We arrange the pickup for free." },
-  { group: "Returns", q: "How long do refunds take?", a: "Refunds are issued to your original payment method within 2 working days of the return reaching us. Your bank may take 5–7 days to show it." },
+  { group: "Returns", q: "How long do refunds take?", a: "Refunds are sent by UPI or bank transfer within 2 working days of the return reaching us." },
   { group: "Products", q: "What does the warranty cover?", a: "Wood and aluminium products carry a 5-year warranty against manufacturing defects; electronics and textiles carry 1–2 years. Normal wear and accidental damage are not covered." },
   { group: "Products", q: "Will the laptop stand fit my laptop?", a: "The Arc stand fits laptops from 11\" to 17\", including every MacBook Air and Pro. Each product page lists exact dimensions under Specifications." },
   { group: "Products", q: "How do I care for walnut products?", a: "Wipe with a dry soft cloth. Once or twice a year, rub in a little food-safe hardwax oil to refresh the finish. Avoid direct sunlight for long periods." },
-  { group: "Orders", q: "Which payment methods do you accept?", a: "All major credit and debit cards, UPI, net banking and popular wallets through our secure payment partner." },
+  { group: "Orders", q: "Which payment methods do you accept?", a: "Right now we take payment on delivery — cash or UPI when your order arrives. We call to confirm every order before it ships. Online card and UPI payments are coming soon." },
   { group: "Orders", q: "Can I change or cancel my order?", a: "Yes, as long as it hasn't shipped. Write to hello@ajdesk.store with your order number and we'll sort it out." },
   { group: "Orders", q: "Do you offer corporate or bulk orders?", a: "We do — from 10 setups to 1,000. Use the contact form and choose 'Corporate orders' for a quote within one working day." },
 ];
@@ -36,5 +36,5 @@ export const usps = [
   { title: "Free shipping over ₹1,999", body: "Fast, tracked delivery across India." },
   { title: "30-day returns", body: "Free pickup, full refund, no fuss." },
   { title: "Up to 5-year warranty", body: "Built from materials that last." },
-  { title: "Secure checkout", body: "Cards, UPI and net banking." },
+  { title: "Pay on delivery", body: "Cash or UPI when it arrives." },
 ];

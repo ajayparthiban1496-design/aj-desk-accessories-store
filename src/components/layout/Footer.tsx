@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 import { Newsletter } from "@/components/Newsletter";
-import { isDemoMode } from "@/lib/supabase";
 
 const cols = [
   {
@@ -80,11 +79,6 @@ export function Footer() {
             <Social label="X (Twitter)" href="https://x.com" path="M18.2 2.3h3.4l-7.4 8.4 8.7 11.5h-6.8l-5.3-7-6.1 7H1.3l7.9-9L.9 2.3h7l4.8 6.4 5.5-6.4zm-1.2 17.9h1.9L7.1 4.2H5.1l11.9 16z" />
           </div>
         </div>
-        {isDemoMode && (
-          <p className="pb-6 text-center text-[11px] text-primary-foreground/40 dark:text-muted">
-            Demo mode — data is stored in this browser. Connect Supabase to go live.
-          </p>
-        )}
       </div>
     </footer>
   );

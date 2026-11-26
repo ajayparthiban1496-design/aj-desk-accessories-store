@@ -1,35 +1,27 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Heart, Plus } from "lucide-react";
-import { toast } from "sonner";
 import type { Product } from "@/types";
+import { inStock } from "@/types";
 import { ProductImage } from "./ProductImage";
-import { Badge, Price, Rating, Skeleton } from "./ui/misc";
+import { Badge, Price, Skeleton } from "./ui/misc";
 import { useCart } from "@/store/cart";
-import { useWishlist } from "@/lib/queries";
+import { useWishlist } from "@/store/wishlist";
 import { cn } from "@/lib/utils";
-import { track } from "@/lib/analytics";
 
 export function ProductCard({ product, priority }: { product: Product; priority?: boolean }) {
   const cart = useCart();
   const wishlist = useWishlist();
-  const navigate = useNavigate();
-  const saved = wishlist.ids.includes(product.id);
-  const firstInStock = product.variants.find((v) => v.stock > 0);
+  const saved = wishlist.has(product.slug);
+  const firstInStock = product.variants.find(inStock);
   const soldOut = !firstInStock;
 
   const quickAdd = () => {
     if (!firstInStock) return;
-    cart.add({ productId: product.id, variantId: firstInStock.id, quantity: 1 });
-    track("Add to cart", { product: product.slug });
+    void cart.add(firstInStock.id, 1, product.slug);
   };
 
-  const toggleSave = () => {
-    if (!wishlist.enabled) {
-      toast("Sign in to save favourites", { action: { label: "Sign in", onClick: () => navigate("/login") } });
-      return;
-    }
-    wishlist.toggle.mutate(product.id);
-  };
+  const toggleSave = () => wishlist.toggle(product.slug);
+
 
   return (
     <article className="group relative flex flex-col">
@@ -66,7 +58,7 @@ export function ProductCard({ product, priority }: { product: Product; priority?
         <button
           type="button"
           onClick={quickAdd}
-          disabled={soldOut}
+          disabled={soldOut || cart.isUpdating}
           className="absolute inset-x-3 bottom-3 flex h-11 translate-y-2 items-center justify-center gap-2 rounded-full bg-primary text-sm font-semibold text-primary-foreground opacity-0 shadow-[var(--shadow-lift)] transition-all duration-300 hover:bg-primary/90 focus-visible:translate-y-0 focus-visible:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 disabled:bg-muted max-md:hidden"
         >
           <Plus className="size-4" /> {soldOut ? "Sold out" : "Quick add"}
@@ -89,7 +81,6 @@ export function ProductCard({ product, priority }: { product: Product; priority?
             ))}
           </div>
         </div>
-        <Rating value={product.rating} count={product.reviewCount} />
       </div>
     </article>
   );

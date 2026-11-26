@@ -15,7 +15,6 @@ const Signup = lazy(() => import("./pages/auth/Signup"));
 const ForgotPassword = lazy(() => import("./pages/auth/ForgotPassword"));
 const ResetPassword = lazy(() => import("./pages/auth/ResetPassword"));
 const Account = lazy(() => import("./pages/Account"));
-const Admin = lazy(() => import("./pages/Admin"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Faq = lazy(() => import("./pages/Faq"));
@@ -44,9 +43,6 @@ export default function App() {
         <Route path="terms" element={<Legal page="terms" />} />
         <Route element={<ProtectedRoute />}>
           <Route path="account" element={<Account />} />
-        </Route>
-        <Route element={<ProtectedRoute role="admin" />}>
-          <Route path="admin" element={<Admin />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Route>

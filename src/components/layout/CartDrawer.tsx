@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { EmptyState, ErrorState, Skeleton } from "@/components/ui/misc";
 import { CartLine } from "@/components/CartLine";
 import { useCart } from "@/store/cart";
-import { useCartDetails } from "@/store/useCartDetails";
 import { FREE_SHIPPING_THRESHOLD, formatPrice } from "@/lib/utils";
 
 export function FreeShippingMeter({ subtotal }: { subtotal: number }) {
@@ -32,8 +31,8 @@ export function FreeShippingMeter({ subtotal }: { subtotal: number }) {
 
 export function CartDrawer() {
   const cart = useCart();
-  const { lines, subtotal, isLoading, isError, refetch } = useCartDetails();
   const navigate = useNavigate();
+  const { lines, totals, isLoading, isError } = cart;
 
   const go = (path: string) => {
     cart.close();
@@ -50,16 +49,16 @@ export function CartDrawer() {
           <div className="space-y-4">
             <div className="flex items-baseline justify-between">
               <span className="text-muted">Subtotal</span>
-              <span className="text-lg font-semibold">{formatPrice(subtotal)}</span>
+              <span className="text-lg font-semibold">{formatPrice(totals.itemTotal)}</span>
             </div>
-            <p className="text-xs text-muted">Taxes included. Shipping calculated at checkout.</p>
-            <Button className="w-full" size="lg" onClick={() => go("/checkout")}>Checkout</Button>
+            <p className="text-xs text-muted">GST included. Shipping and promo codes at checkout.</p>
+            <Button className="w-full" size="lg" disabled={!cart.canOrder} onClick={() => go("/checkout")}>Checkout</Button>
             <Button variant="link" className="w-full text-sm" onClick={() => go("/cart")}>View bag</Button>
           </div>
         )
       }
     >
-      <div className="space-y-6 px-6 py-6">
+      <div className="space-y-6 px-6 py-6" aria-busy={cart.isUpdating}>
         {isLoading ? (
           <div className="space-y-4">
             {[0, 1].map((i) => (
@@ -67,7 +66,7 @@ export function CartDrawer() {
             ))}
           </div>
         ) : isError ? (
-          <ErrorState message="We couldn't load your bag." onRetry={() => refetch()} />
+          <ErrorState message="We couldn't load your bag." onRetry={cart.refetch} />
         ) : lines.length === 0 ? (
           <EmptyState
             icon={<ShoppingBag />}
@@ -77,10 +76,10 @@ export function CartDrawer() {
           />
         ) : (
           <>
-            <FreeShippingMeter subtotal={subtotal} />
+            <FreeShippingMeter subtotal={totals.itemTotal} />
             <ul className="divide-y divide-border">
               {lines.map((l) => (
-                <li key={l.variantId} className="py-4 first:pt-0">
+                <li key={l.id} className="py-4 first:pt-0">
                   <CartLine line={l} onNavigate={cart.close} compact />
                 </li>
               ))}

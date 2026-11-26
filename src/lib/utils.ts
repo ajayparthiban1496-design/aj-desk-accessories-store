@@ -16,12 +16,11 @@ export function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
 }
 
+/**
+ * Display only: drives the "away from free shipping" meter. The actual charge
+ * comes from Medusa's shipping option (free from ₹1,999 there too).
+ */
 export const FREE_SHIPPING_THRESHOLD = 199900;
-export const FLAT_SHIPPING = 14900;
-
-export function shippingFor(subtotal: number) {
-  return subtotal === 0 || subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : FLAT_SHIPPING;
-}
 
 export function unsplash(id: string, w = 1200) {
   return `https://images.unsplash.com/photo-${id}?w=${w}&q=75&auto=format&fit=crop`;
@@ -33,8 +32,3 @@ export function uid(prefix = "") {
 
 /** Base path the app is served from ("" at a domain root, "/repo-name" on GitHub Pages). */
 export const BASE_PATH = import.meta.env.BASE_URL.replace(/\/$/, "");
-
-/** Absolute URL to a route in this app, e.g. appUrl("/account"). Used for auth and payment redirects. */
-export function appUrl(path = "") {
-  return `${window.location.origin}${BASE_PATH}${path}`;
-}

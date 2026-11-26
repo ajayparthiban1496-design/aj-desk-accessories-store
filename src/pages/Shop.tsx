@@ -2,8 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { SearchX, SlidersHorizontal, X } from "lucide-react";
 import type { CategorySlug, SortKey } from "@/types";
-import { categories } from "@/data/products";
-import { useProducts } from "@/lib/queries";
+import { useCategories, useProducts } from "@/lib/queries";
 import { usePageMeta } from "@/lib/seo";
 import { ProductGrid } from "@/components/ProductCard";
 import { EmptyState, ErrorState } from "@/components/ui/misc";
@@ -18,7 +17,6 @@ const sorts: { value: SortKey; label: string }[] = [
   { value: "newest", label: "Newest" },
   { value: "price-asc", label: "Price: low to high" },
   { value: "price-desc", label: "Price: high to low" },
-  { value: "rating", label: "Top rated" },
 ];
 const priceCaps = [100000, 250000, 500000];
 
@@ -27,6 +25,7 @@ export default function Shop() {
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const category = (params.get("category") as CategorySlug | null) ?? undefined;
+  const { data: categories = [] } = useCategories();
   const validCategory = categories.find((c) => c.slug === category);
   const search = params.get("q") ?? undefined;
   const sort = (params.get("sort") as SortKey | null) ?? "featured";

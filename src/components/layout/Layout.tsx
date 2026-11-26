@@ -5,6 +5,7 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { CartDrawer } from "./CartDrawer";
 import { Button } from "@/components/ui/button";
+import { useBackendOnline } from "@/lib/medusa/status";
 
 function AnnouncementBar() {
   return (
@@ -12,6 +13,20 @@ function AnnouncementBar() {
       <p className="container-page py-2.5 text-center text-xs font-medium tracking-wide">
         Free shipping across India over ₹1,999 · 30-day returns ·{" "}
         <Link to="/shop?category=lighting" className="underline underline-offset-2">New: Halo light bar</Link>
+      </p>
+    </div>
+  );
+}
+
+/** Shown when the shop backend can't be reached: browsing continues from the bundled catalogue. */
+function BackendNotice() {
+  const online = useBackendOnline();
+  if (online) return null;
+  return (
+    <div role="status" className="border-b border-warning/30 bg-warning/10">
+      <p className="container-page py-2.5 text-center text-sm">
+        We're having trouble reaching the shop. You can keep browsing; ordering will be back shortly.{" "}
+        <Link to="/contact" className="font-semibold underline underline-offset-2">Contact us</Link> if you need help now.
       </p>
     </div>
   );
@@ -66,6 +81,7 @@ export function Layout() {
       <ScrollToTop />
       <AnnouncementBar />
       <Header />
+      <BackendNotice />
       <main id="main" className="min-h-[60vh]">
         <Suspense fallback={<PageLoader />}>
           <Outlet />

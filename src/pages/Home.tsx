@@ -6,9 +6,9 @@ import { Accordion } from "@/components/ui/accordion";
 import { ProductGrid } from "@/components/ProductCard";
 import { ProductImage } from "@/components/ProductImage";
 import { Reveal } from "@/components/Reveal";
-import { useProducts } from "@/lib/queries";
+import { useCategories, useProducts } from "@/lib/queries";
 import { usePageMeta } from "@/lib/seo";
-import { categories, IMG } from "@/data/products";
+import { IMG } from "@/data/products";
 import { faqs, press, testimonials, usps } from "@/data/content";
 import { formatPrice, unsplash } from "@/lib/utils";
 
@@ -91,6 +91,7 @@ function PressStrip() {
 }
 
 function Categories() {
+  const { data: categories = [] } = useCategories();
   return (
     <section className="container-page mt-24 md:mt-32">
       <SectionHeading

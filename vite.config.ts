@@ -14,7 +14,7 @@ export default defineConfig({
         // Long-lived vendor chunks so app updates don't bust the framework cache.
         manualChunks(id: string) {
           if (!id.includes("node_modules")) return undefined;
-          if (id.includes("@supabase")) return "supabase";
+          if (id.includes("@medusajs")) return "medusa";
           if (/[\\/](react|react-dom|react-router|react-router-dom|scheduler)[\\/]/.test(id)) return "react";
           return undefined;
         },

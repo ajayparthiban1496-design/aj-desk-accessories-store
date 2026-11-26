@@ -24,7 +24,7 @@ const pages: Record<PageKey, { title: string; description: string; updated: stri
           <a href="mailto:hello@ajdesk.store">hello@ajdesk.store</a> with your order number — we'll schedule a free pickup.
         </p>
         <h2>Refunds</h2>
-        <p>Refunds are issued to your original payment method within 2 working days of the item reaching us. Banks typically take 5–7 days to reflect it.</p>
+        <p>Refunds are sent by UPI or bank transfer within 2 working days of the item reaching us.</p>
         <h2>Damaged or faulty items</h2>
         <p>If something arrives damaged, send us a photo within 48 hours and we'll ship a replacement immediately — no need to wait for the return.</p>
       </>
@@ -43,7 +43,7 @@ const pages: Record<PageKey, { title: string; description: string; updated: stri
         <ul>
           <li>Account details: name, email and a securely hashed password.</li>
           <li>Order details: shipping address, phone number and order history.</li>
-          <li>Payment: processed by our payment partner (Stripe). We never see or store your full card details.</li>
+          <li>Payment: orders are currently paid on delivery (cash or UPI). We don't collect card details on this site.</li>
           <li>Usage: anonymous, cookieless analytics about which pages are visited.</li>
         </ul>
         <h2>How we use it</h2>
@@ -59,7 +59,7 @@ const pages: Record<PageKey, { title: string; description: string; updated: stri
           You can access, correct or delete your data at any time by writing to <a href="mailto:privacy@ajdesk.store">privacy@ajdesk.store</a>. We respond within 30 days.
         </p>
         <h2>Data storage</h2>
-        <p>Data is stored with our infrastructure provider (Supabase) with encryption at rest and strict access controls.</p>
+        <p>Order and account data is stored in our commerce system (hosted on Vercel and Neon in Singapore) with encryption at rest and strict access controls.</p>
       </>
     ),
   },
@@ -73,7 +73,7 @@ const pages: Record<PageKey, { title: string; description: string; updated: stri
         <h2>Orders and pricing</h2>
         <p>All prices are in Indian Rupees and include GST. We reserve the right to cancel orders affected by pricing errors, in which case you'll receive a full refund.</p>
         <h2>Payment</h2>
-        <p>Payments are processed securely by our payment partner. Your order is confirmed once payment succeeds.</p>
+        <p>Orders are paid on delivery, by cash or UPI. We call to confirm each order before dispatch, and may cancel an order we cannot confirm.</p>
         <h2>Warranty</h2>
         <p>Products carry the warranty stated on their product page, covering manufacturing defects under normal use. Accidental damage and normal wear are not covered.</p>
         <h2>Returns</h2>

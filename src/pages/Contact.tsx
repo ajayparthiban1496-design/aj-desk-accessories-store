@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle2, Clock, Mail, MapPin, Phone } from "lucide-react";
 import { toast } from "sonner";
-import { api } from "@/lib/api";
+import { sendContactMessage } from "@/lib/medusa/catalog";
+import { friendlyError } from "@/lib/medusa/sdk";
 import { contactSchema, type ContactInput } from "@/lib/schemas";
 import { usePageMeta } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
@@ -24,11 +25,11 @@ export default function Contact() {
 
   const onSubmit = async (v: ContactInput) => {
     try {
-      await api.sendContact(v);
+      await sendContactMessage(v);
       setSent(true);
       reset();
     } catch (e) {
-      toast.error((e as Error).message);
+      toast.error(friendlyError(e));
     }
   };
 

@@ -1,6 +1,7 @@
-export type CategorySlug = "stands" | "mats" | "lighting" | "organisation" | "audio";
+export type CategorySlug = string;
 
 export interface Category {
+  id: string;
   slug: CategorySlug;
   name: string;
   description: string;
@@ -12,7 +13,9 @@ export interface Variant {
   name: string;
   /** Hex swatch for the finish selector */
   swatch: string;
-  stock: number;
+  /** Units available to sell; null when Medusa doesn't track inventory for the variant */
+  stock: number | null;
+  sku: string | null;
 }
 
 export interface Product {
@@ -22,35 +25,41 @@ export interface Product {
   tagline: string;
   description: string;
   category: CategorySlug;
-  /** Price in paise (₹1 = 100) to avoid float maths */
+  /** Price in paise (₹1 = 100), GST included, as calculated by Medusa */
   price: number;
   compareAtPrice: number | null;
   images: string[];
   variants: Variant[];
   features: string[];
   specs: Record<string, string>;
-  rating: number;
-  reviewCount: number;
   badge: "Bestseller" | "New" | "Limited" | null;
   isFeatured: boolean;
-  isActive: boolean;
   createdAt: string;
 }
 
-export interface Review {
+export const inStock = (v: Variant) => v.stock === null || v.stock > 0;
+
+/** A Medusa cart line joined with the storefront product it belongs to. */
+export interface CartLine {
   id: string;
-  productId: string;
-  author: string;
-  rating: number;
-  title: string;
-  body: string;
-  createdAt: string;
-}
-
-export interface CartItem {
   productId: string;
   variantId: string;
   quantity: number;
+  /** Line total in paise, GST included */
+  total: number;
+  product: Product | null;
+  title: string;
+  variantTitle: string;
+  thumbnail: string;
+}
+
+export interface CartTotals {
+  /** All amounts in paise, GST included */
+  itemTotal: number;
+  discountTotal: number;
+  shippingTotal: number;
+  taxTotal: number;
+  total: number;
 }
 
 export interface ShippingAddress {
@@ -64,42 +73,36 @@ export interface ShippingAddress {
   pincode: string;
 }
 
-export type OrderStatus = "pending" | "paid" | "shipped" | "delivered" | "cancelled";
-
 export interface OrderItem {
-  productId: string;
-  variantId: string;
+  id: string;
   name: string;
   variantName: string;
   image: string;
   unitPrice: number;
   quantity: number;
+  total: number;
 }
 
 export interface Order {
   id: string;
   orderNumber: string;
-  userId: string | null;
   email: string;
-  status: OrderStatus;
+  status: string;
+  paymentStatus: string;
+  fulfillmentStatus: string;
   items: OrderItem[];
-  subtotal: number;
-  shipping: number;
-  total: number;
+  totals: CartTotals;
   shippingAddress: ShippingAddress;
   createdAt: string;
 }
-
-export type Role = "customer" | "admin";
 
 export interface AppUser {
   id: string;
   email: string;
   fullName: string;
-  role: Role;
 }
 
-export type SortKey = "featured" | "price-asc" | "price-desc" | "rating" | "newest";
+export type SortKey = "featured" | "price-asc" | "price-desc" | "newest";
 
 export interface ProductFilters {
   category?: CategorySlug;
